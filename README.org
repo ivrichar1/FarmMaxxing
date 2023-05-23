@@ -3,4 +3,10 @@
 * Scraping the reviews
 #+begin_src emacs-lisp
 
+(request-response-data
+(request "https://store.steampowered.com/appreviews/413150?json=1"
+  :params '(("filter" . "recent") ("language" . "english")("day_range" . "3") ("cursor" . "*") ("review_type" . "all") ("purchase_type" . "steam") ("num_per_page" . "20"))
+  :parser 'json-read
+  :sync t))
 #+end_src
+
